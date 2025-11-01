@@ -1,19 +1,18 @@
+// src/app/layout.tsx
 import type { Metadata } from "next";
 import { Calistoga, Instrument_Serif, Inter } from "next/font/google";
 import { twMerge } from "tailwind-merge";
-import OnekoCat from "@/components/onekocat";
-import "./globals.css";
-import CatToggle from "@/components/CatToggle";
 import MusicToggle from "@/components/MusicToggle";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const calistoga = Calistoga({ subsets: ["latin"], variable: "--font-serif", weight: "400" });
-
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
-  weight: ["400",],
+  weight: ["400"],
   variable: "--font-instrument-serif",
 });
+
 export const metadata: Metadata = {
   title: "My Portfolio",
   icons: "/logo.png",
@@ -22,16 +21,30 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={twMerge(inter.variable, instrumentSerif.variable, calistoga.variable, "bg-emerald-900 light:bg-white text-white antialiased font-sans")}>
+      <head>
+        {/* Load Oneko script – runs once */}
+        <script src="/oneko/oneko.js" defer></script>
+      </head>
+
+      <body
+        className={twMerge(
+          inter.variable,
+          instrumentSerif.variable,
+          calistoga.variable,
+          "bg-gradient-to-t from-gray-900 via-gray-900 to-gray-800 text-white antialiased font-sans min-h-screen"
+        )}
+      >
         {children}
-        {/* <CatToggle /> */}
-       <MusicToggle />
-        <OnekoCat />
+
+        {/* Only MusicToggle remains */}
+        <div className="fixed bottom-6 right-6 z-[9999]">
+          <MusicToggle />
+        </div>
       </body>
     </html>
   );

@@ -3,6 +3,10 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;700&display=swap');
 
+html {
+  scroll-behavior: smooth;
+}
+
 @layer base {
   .nav-item {
     @apply px-4 py-1.5 rounded-full text-white/70 text-base font-semibold hover:bg-white/10 hover:text-lime-300 transition-colors duration-300;
@@ -20,6 +24,36 @@
 
   .animate-slideDown {
     animation: slideDown 0.3s ease forwards;
+  }
+}
+
+@layer utilities {
+  .container {
+    @apply lg:max-w-4xl mx-auto px-4;
+  }
+  .bg-gradient-to-t {
+    background-image: linear-gradient(to top, var(--tw-gradient-stops));
+  }
+  .bg-gradient-to-tr {
+    background-image: linear-gradient(to top right, var(--tw-gradient-stops));
+  }
+  .bg-gradient-to-r {
+    background-image: linear-gradient(to right, var(--tw-gradient-stops));
+  }
+  .bg-gradient-to-br {
+    background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+  }
+  .bg-gradient-to-b {
+    background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+  }
+  .bg-gradient-to-bl {
+    background-image: linear-gradient(to bottom left, var(--tw-gradient-stops));
+  }
+  .bg-gradient-radial {
+    background-image: radial-gradient(var(--tw-gradient-stops));
+  }
+  .bg-gradient-conic {
+    background-image: conic-gradient(from 180deg at center, var(--tw-gradient-stops));
   }
 }
 :root {

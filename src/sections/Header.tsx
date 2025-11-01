@@ -24,7 +24,7 @@ export const Header = () => {
         <nav className="hidden md:flex gap-2.5 items-center">
           <a href="#" className="nav-item text-base">Home</a>
           <a href="#" className="nav-item text-base">Projects</a>
-          <a href="#" className="nav-item text-base">About</a>
+          <a href="/about" className="nav-item text-base">About</a>
           <a href="#" className="nav-item text-base">Blog</a>
           <a
             href="#"

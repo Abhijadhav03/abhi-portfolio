@@ -1,31 +1,39 @@
 'use client';
 
-import { useState } from 'react';
-import OnekoCat from './onekocat';
+import { useEffect, useState } from 'react';
 import { Cat } from 'lucide-react';
 
 export default function CatToggle() {
-  const [isCatActive, setIsCatActive] = useState(true);
+  const [enabled, setEnabled] = useState(false);
+
+  // Load saved state
+  useEffect(() => {
+    const saved = localStorage.getItem('oneko:enabled');
+    const start = saved === null ? true : JSON.parse(saved);
+    setEnabled(start);
+    if (start) (window as any).onekoToggle?.();
+  }, []);
+
+  const toggle = () => {
+    const next = !enabled;
+    setEnabled(next);
+    localStorage.setItem('oneko:enabled', JSON.stringify(next));
+    (window as any).onekoToggle?.(next);
+  };
 
   return (
-    <div className="fixed bottom-5 right-5 z-[2147483648]">
-      <button
-        onClick={() => setIsCatActive(!isCatActive)}
-        className={`w-12 h-12 flex items-center justify-center rounded-full backdrop-blur-md border transition-all duration-300 shadow-md ${
-          isCatActive
-            ? 'bg-lime-400/20 border-lime-400/40 hover:bg-lime-400/30'
-            : 'bg-white/10 border-white/20 hover:bg-white/20'
-        }`}
-        aria-label={isCatActive ? 'Hide Cat' : 'Show Cat'}
-      >
-        <Cat
-          className={`w-5 h-5 transition-colors duration-300 ${
-            isCatActive ? 'text-lime-400' : 'text-white'
-          }`}
-        />
-      </button>
-
-      {isCatActive && <OnekoCat />}
-    </div>
+    <button
+      onClick={toggle}
+      className={`
+        p-3 rounded-full shadow-lg transition-all duration-200
+        ${enabled 
+          ? 'bg-pink-600 text-white hover:bg-pink-700' 
+          : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
+        }
+      `}
+      title={enabled ? 'Hide the cat' : 'Show the cat'}
+    >
+      <Cat className="w-5 h-5" />
+    </button>
   );
 }
