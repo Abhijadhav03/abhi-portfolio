@@ -5,7 +5,6 @@ import { twMerge } from "tailwind-merge";
 import MusicToggle from "@/components/MusicToggle";
 import "./globals.css";
 
-
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const calistoga = Calistoga({ subsets: ["latin"], variable: "--font-serif", weight: "400" });
 const instrumentSerif = Instrument_Serif({
@@ -28,10 +27,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Load Oneko script – runs once */}
         <script src="/oneko/oneko.js" defer></script>
       </head>
- 
       <body
         className={twMerge(
           inter.variable,
@@ -40,15 +37,12 @@ export default function RootLayout({
           "bg-gradient-to-t from-gray-900 via-gray-900 to-gray-800 text-white antialiased font-sans min-h-screen"
         )}
       >
-    
         {children}
-      
-        {/* Only MusicToggle remains */}
+        <div id="oneko-container" /> {/* Placeholder for oneko.js */}
         <div className="fixed bottom-6 right-6 z-[9999]">
           <MusicToggle />
         </div>
       </body>
-      
     </html>
   );
 }
