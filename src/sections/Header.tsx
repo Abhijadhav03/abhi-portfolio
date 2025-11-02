@@ -22,10 +22,10 @@ export const Header = () => {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex gap-2.5 items-center">
-          <a href="#" className="nav-item text-base">Home</a>
-          <a href="#" className="nav-item text-base">Projects</a>
+          <a href="/" className="nav-item text-base">Home</a>
+          <a href="/#projects" className="nav-item text-base">Projects</a>
           <a href="/about" className="nav-item text-base">About</a>
-          <a href="#" className="nav-item text-base">Blog</a>
+          <a href="/blog" className="nav-item text-base">Blog</a>
           <a
             href="#"
             className="nav-item bg-white text-gray-900 hover:bg-white/20 hover:text-lime-300 text-base font-semibold"
@@ -52,16 +52,16 @@ export const Header = () => {
           className={`${containerStyles} top-[4.75rem] z-40 rounded-b-2xl border-x border-b border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.25)] md:hidden animate-in fade-in duration-200`}
         >
           <div className="flex flex-col items-center gap-3 py-4 px-4">
-            <a href="#" className="nav-item text-lg text-lime-200 w-full text-center" onClick={() => setMenuOpen(false)}>
+            <a href="/" className="nav-item text-lg text-lime-200 w-full text-center" onClick={() => setMenuOpen(false)}>
               Home
             </a>
-            <a href="#" className="nav-item text-lg w-full text-lime-200 text-center" onClick={() => setMenuOpen(false)}>
+            <a href="/#projects" className="nav-item text-lg w-full text-lime-200 text-center" onClick={() => setMenuOpen(false)}>
               Projects
             </a>
-            <a href="#" className="nav-item text-lg text-lime-200 w-full text-center" onClick={() => setMenuOpen(false)}>
+            <a href="/about" className="nav-item text-lg text-lime-200 w-full text-center" onClick={() => setMenuOpen(false)}>
               About
             </a>
-            <a href="#" className="nav-item text-lg text-lime-200 w-full text-center" onClick={() => setMenuOpen(false)}>
+            <a href="/blog" className="nav-item text-lg text-lime-200 w-full text-center" onClick={() => setMenuOpen(false)}>
               Blog
             </a>
             <a
