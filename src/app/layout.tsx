@@ -38,7 +38,7 @@ export default function RootLayout({
         )}
       >
         {children}
-        <div id="oneko-container" /> {/* Placeholder for oneko.js */}
+        <div id="oneko" /> {/* Placeholder for oneko.js */}
         <div className="fixed bottom-6 right-6 z-[9999]">
           <MusicToggle />
         </div>
