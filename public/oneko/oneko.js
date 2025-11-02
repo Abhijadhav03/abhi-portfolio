@@ -4,6 +4,14 @@
 // ---------------------------------------------------------------
 
 (async function oneko() {
+
+  // 🔒 Guard against multiple instances
+  if (document.getElementById('oneko')) {
+    console.log('Oneko already initialized');
+    return;
+  }
+
+
   const CYCLE_INTERVAL = 30_000;   // 30 seconds
   const NEKO_SPEED = 10;
 
