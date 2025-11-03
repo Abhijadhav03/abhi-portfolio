@@ -112,7 +112,7 @@ function InfiniteSlider({
 export function LogoCloud({
   className,
   logos,
-  gap = 32, // Increased default gap for more spacing
+  gap = 35, // Increased default gap for more spacing
   speed = 60,
   speedOnHover = 20,
   direction = 'horizontal',
@@ -120,22 +120,40 @@ export function LogoCloud({
   ...props
 }: LogoCloudProps) {
   return (
+  <section
+    {...props}
+    className={cn(
+      'py-16  dark:bg-gray-900 text-center',
+      className
+    )}
+  >
+    <h2 className="text-3xl md:text-4xl font-instrument-serif text-white text-gray-900">
+      Stack I Use
+    </h2>
+    <p className="mt-3 text-base md:text-lg text-white/50 mx-6 ">
+   From front-end finesse to back-end muscle - these are the tools I use to bring ideas to life.
+    </p>
+
     <div
-      {...props}
       className={cn(
-        'py-4 bg-gray-850 text-foreground', // Reduced height
-        '[mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]', // Increased edge blur
-        className
+        'mt-10 py-4 bg-gray-850 text-foreground',
+        '[mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]'
       )}
     >
-      <InfiniteSlider gap={gap} speed={speed} speedOnHover={speedOnHover} direction={direction} reverse={reverse}>
+      <InfiniteSlider
+        gap={gap}
+        speed={speed}
+        speedOnHover={speedOnHover}
+        direction={direction}
+        reverse={reverse}
+      >
         {logos.map((logo) => (
           <img
             alt={logo.alt}
             className={cn(
-              'h-8 w-auto md:h-6', // Reduced logo height
-              'dark:brightness-75 dark:contrast-125', // Theme-aware logo styling
-              'pointer-events-none select-none'
+              'h-12 w-12 md:h-12 md:w-12 pointer-events-none select-none gap-12 object-fit-contain',
+              'grayscale brightness-125 contrast-90 opacity-80',
+              'dark:brightness-75 dark:contrast-125 hover:grayscale-0 hover:opacity-100 transition duration-300'
             )}
             height={logo.height || 'auto'}
             key={`logo-${logo.alt}`}
@@ -146,5 +164,6 @@ export function LogoCloud({
         ))}
       </InfiniteSlider>
     </div>
-  );
+  </section>
+);
 }
