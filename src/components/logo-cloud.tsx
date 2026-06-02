@@ -1,11 +1,11 @@
 "use client";
 
-import { InfiniteSlider } from "@/components/ui/infinite-slider";
 import { ProgressiveBlur } from "@/components/ui/progressive-blur";
 import { useTranslations } from "next-intl";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 // import { whiteNoise } from "@/src/assets/images/grain.jpg";
- import { grainimage } from '@/assets/images/grain.jpg';
+import grainimage from '@/assets/images/grain.jpg';
+import { InfiniteSlider } from "@/components/ui/infinite-slider";
 
 export default function LogoCloud() {
   const t = useTranslations("LogoCloud");

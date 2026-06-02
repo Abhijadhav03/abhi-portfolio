@@ -112,7 +112,80 @@ const defaultItemAnimationVariants: Record<
       },
     },
   },
-  // ... include other variants from your original code ...
+  blurInDown: {
+    container: defaultContainerVariants,
+    item: {
+      hidden: { opacity: 0, filter: "blur(10px)", y: -20 },
+      show: {
+        opacity: 1,
+        filter: "blur(0px)",
+        y: 0,
+        transition: {
+          y: { duration: 0.3 },
+          opacity: { duration: 0.4 },
+          filter: { duration: 0.3 },
+        },
+      },
+      exit: {
+        opacity: 0,
+        filter: "blur(10px)",
+        y: -20,
+        transition: {
+          y: { duration: 0.3 },
+          opacity: { duration: 0.4 },
+          filter: { duration: 0.3 },
+        },
+      },
+    },
+  },
+  slideUp: {
+    container: defaultContainerVariants,
+    item: {
+      hidden: { opacity: 0, y: 20 },
+      show: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+      exit: { opacity: 0, y: 20, transition: { duration: 0.3 } },
+    },
+  },
+  slideDown: {
+    container: defaultContainerVariants,
+    item: {
+      hidden: { opacity: 0, y: -20 },
+      show: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+      exit: { opacity: 0, y: -20, transition: { duration: 0.3 } },
+    },
+  },
+  slideLeft: {
+    container: defaultContainerVariants,
+    item: {
+      hidden: { opacity: 0, x: 20 },
+      show: { opacity: 1, x: 0, transition: { duration: 0.3 } },
+      exit: { opacity: 0, x: 20, transition: { duration: 0.3 } },
+    },
+  },
+  slideRight: {
+    container: defaultContainerVariants,
+    item: {
+      hidden: { opacity: 0, x: -20 },
+      show: { opacity: 1, x: 0, transition: { duration: 0.3 } },
+      exit: { opacity: 0, x: -20, transition: { duration: 0.3 } },
+    },
+  },
+  scaleUp: {
+    container: defaultContainerVariants,
+    item: {
+      hidden: { opacity: 0, scale: 0.8 },
+      show: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
+      exit: { opacity: 0, scale: 0.8, transition: { duration: 0.3 } },
+    },
+  },
+  scaleDown: {
+    container: defaultContainerVariants,
+    item: {
+      hidden: { opacity: 0, scale: 1.2 },
+      show: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
+      exit: { opacity: 0, scale: 1.2, transition: { duration: 0.3 } },
+    },
+  },
 };
 
 // Helper function to split children into segments (text characters + JSX elements)

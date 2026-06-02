@@ -38,6 +38,7 @@ export const AnimatedThemeToggler = ({
   const toggleTheme = useCallback(async () => {
     if (!buttonRef.current) return
 
+    // @ts-ignore: startViewTransition is a newer web API not in default DOM types
     await document.startViewTransition(() => {
       flushSync(() => {
         const newTheme = !isDark

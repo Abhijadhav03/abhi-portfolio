@@ -1,4 +1,4 @@
-const BlogCard = ({ title, date, description }) => {
+const BlogCard = ({ title, date, description }: { title: string, date: string, description: string }) => {
     return (
         <div className='text-white w-full h-20 p-4 space-y-1 blog-card group hover:cursor-pointer'>
             <div className='flex justify-center gap-1 items-end relative'>
