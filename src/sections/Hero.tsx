@@ -39,40 +39,44 @@ export const HeroSection = () => {
         </div>
 
         {/* Headline */}
-      <h1 className="text-center leading-tight">
-  <div className="inline-flex flex-wrap items-center justify-center gap-1 sm:gap-2">
-    <TextAnimate
-      animation="blurInUp"
-      by="character"
-      className="inline-block text-3xl sm:text-4xl md:text-5xl font-instrument-serif tracking-tight text-white"
-    >
-      Hey there, I&apos;m Abhishek
-      <Image
-      src={handwave}
-      alt="Hand Wave"
-      className="inline-block w-6 h-6 sm:w-8 sm:h-8 animate-wave-smooth origin-bottom-right"
-    />
-    </TextAnimate>
-  </div>
-</h1>
+        <h1 className="text-center leading-tight">
+          <div className="inline-flex flex-wrap items-center justify-center gap-1 sm:gap-2">
+            <TextAnimate
+              animation="blurInUp"
+              by="character"
+              className="inline-block text-3xl sm:text-4xl md:text-5xl font-instrument-serif tracking-tight text-white"
+            >
+              Hey there, I&apos;m Abhishek
+              <Image
+                src={handwave}
+                alt="Hand Wave"
+                className="inline-block w-6 h-6 sm:w-8 sm:h-8 animate-wave-smooth origin-bottom-right ml-2"
+              />
+            </TextAnimate>
+          </div>
+        </h1>
 
 
         {/* Subtext */}
         <p className="text-white/70 max-w-xl text-base sm-text-l md:text-lg">
-          <Highlighter action="underline" color="#FF9800">A Frontend Engineer
-            </Highlighter> and coffee enthusiast 🍵. I build modern web
-          experiences that feel natural, fast, and delightful.
+          <Highlighter action="underline" color="#FF9800">
+            A Frontend Engineer 
+          </Highlighter> 
+           Focused on Building Scalable High Performant web applications
+          {/* and coffee enthusiast 🍵. */}
+           {/* I build modern web
+          experiences that feel natural, fast, and delightful. */}
         </p>
 
         {/* Buttons */}
         <div className="flex flex-wrap justify-center gap-4 mt-4">
-        <a
-  href="#projects"
-  className="flex items-center gap-2 bg-white hover:bg-lime-600 text-gray-900 font-semibold px-5 py-2.5 rounded-full transition-all duration-300 shadow-sm hover:shadow-md"
->
-  <span>Explore My Work</span>
-  <ArrowDown className="w-4 h-4" />
-</a>
+          <a
+            href="#projects"
+            className="flex items-center gap-2 bg-white hover:bg-lime-600 text-gray-900 font-semibold px-5 py-2.5 rounded-full transition-all duration-300 shadow-sm hover:shadow-md"
+          >
+            <span>Explore My Work</span>
+            <ArrowDown className="w-4 h-4" />
+          </a>
           <HoverBorderGradient
             containerClassName="rounded-full"
             as="button"

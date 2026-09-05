@@ -11,7 +11,7 @@ const portfolioProjects = [
   {
     company: "NOTE FORGE",
     year: "2025",
-    title: "NOTE FORGE- Notes App for Devs",
+    title: "Note Forge",
     results: [
       { title: "Enhanced user experience by 40%" },
       { title: "Improved site speed by 50%" },

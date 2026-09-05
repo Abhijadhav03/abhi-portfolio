@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-const words = ["Hello","नमस्ते", "Bonjour", "Ciao", "Olà", "やあ", "Hallå", "Guten tag", "হ্যালো"];
+const words = ["Hello", "नमस्ते", "Bonjour", "Ciao", "Olà", "やあ", "Hallå", "Guten tag", "হ্যালো"];
 
 const opacity = {
   initial: { opacity: 0 },
@@ -79,7 +79,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
             animate="enter"
             className="flex items-center text-white text-4xl md:text-5xl lg:text-6xl absolute z-10 font-medium"
           >
-            <span className="block w-2.5 h-2.5 bg-white rounded-full mr-2.5"></span>
+            {/* <span className="block w-2.5 h-2.5 bg-white rounded-full mr-2.5"></span> */}
             {words[index]}
           </motion.p>
           <svg className="absolute top-0 w-full h-[calc(100%+300px)]">

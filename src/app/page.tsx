@@ -113,7 +113,7 @@ export default function Home() {
           <HeroSection />
           <ProjectsSection />
           <LogoCloud logos={logos} className="lg:mx-20 md:mx-12 sm:mx-12" />
-          
+
           <Footer />
         </motion.div>
       )}
