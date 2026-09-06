@@ -70,7 +70,7 @@ export const ProjectsSection = () => {
   after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-tr 
   after:from-emerald-800 after:via-gray-700 after:to-gray-900 after:opacity-40 
   hover:after:opacity-60 after:rounded-3xl after:pointer-events-none 
-  transition-opacity px-8 pt-8 md:pt-12 md:px-10 "
+  transition-opacity px-8 pt-8 md:pt-12 md:px-10  "
 >
   {/* GRAIN: Behind everything, very low opacity */}
   <div
@@ -112,7 +112,7 @@ export const ProjectsSection = () => {
       </ul>
 
       <a href={project.link} target="_blank" rel="noopener noreferrer">
-        <button className="bg-white text-gray-950 h-10 w-full md:w-auto px-8 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-4 lg:mb-8 hover:bg-gray-100 transition-colors">
+        <button className="bg-white text-gray-950 h-10 w-full md:w-auto px-8 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-4 lg:mb-8 hover:bg-gray-100 transition-colors sm:m-8">
           <span>View Live Project</span>
           <ArrowUpRightIcon className="size-4" />
         </button>

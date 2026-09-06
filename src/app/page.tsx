@@ -21,10 +21,10 @@ const logos = [
     src: "https://svgl.app/library/react_dark.svg",
     alt: "Reactjs Logo",
   },
-  {
-    src: "https://svgl.app/library/vitejs.svg",
-    alt: "Vite Logo",
-  },
+  // {
+  //   src: "https://svgl.app/library/vitejs.svg",
+  //   alt: "Vite Logo",
+  // },
   {
     src: "https://svgl.app/library/typescript.svg",
     alt: "TypeScript Logo",

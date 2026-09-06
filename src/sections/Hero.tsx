@@ -1,5 +1,5 @@
 "use client";
-
+import { DotLottiePlayer } from "@dotlottie/react-player";
 import Image from "next/image";
 import ArrowDown from "@/assets/icons/arrow-down.svg";
 import handwave from "@/assets/images/hand_wave.png";
@@ -8,7 +8,8 @@ import memojiImage from "@/assets/images/memoji-computer.png";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import grainimage from "@/assets/images/grain.jpg";
 import { TextAnimate } from "@/components/ui/text-animate";
-import { Highlighter } from "@/components/ui/highlighter"
+import { Highlighter } from "@/components/ui/highlighter";
+
 export const HeroSection = () => {
   return (
     <section className="relative w-full flex flex-col justify-center items-center text-center py-32 text-white overflow-hidden z-0 after:pointer-events-none">
@@ -46,25 +47,28 @@ export const HeroSection = () => {
               by="character"
               className="inline-block text-3xl sm:text-4xl md:text-5xl font-instrument-serif tracking-tight text-white"
             >
-              Hey there, I&apos;m Abhishek
-              <Image
+              Hey there, I&apos;m <span className="whitespace-nowrap"><span className=" bg-gradient-to-r from-lime-200 via-lime-400 to-lime-700 bg-clip-text text-transparent">Abhishek</span>
+              <DotLottiePlayer
+                src="/peace.lottie"
+                autoplay
+                loop
+                style={{ height: '42px', width: '42px', display: 'inline-block', verticalAlign: 'bottom', marginLeft: '8px', marginBottom: '5px' }}
+              /></span>
+              {/* <Image
                 src={handwave}
                 alt="Hand Wave"
                 className="inline-block w-6 h-6 sm:w-8 sm:h-8 animate-wave-smooth origin-bottom-right ml-2"
-              />
+              /> */}
             </TextAnimate>
           </div>
         </h1>
 
 
         {/* Subtext */}
-        <p className="text-white/70 max-w-xl text-base sm-text-l md:text-lg">
-          <Highlighter action="underline" color="#FF9800">
-            A Frontend Engineer 
-          </Highlighter> 
-           Focused on Building Scalable High Performant web applications
+        <p className="text-white/70 max-w-xl text-base sm:text-l md:text-lg">
+          <Highlighter action="underline" isView={true} color="#BCEF6B">A Frontend Engineer</Highlighter> Focused on Building Scalable High Performant Web Applications
           {/* and coffee enthusiast 🍵. */}
-           {/* I build modern web
+          {/* I build modern web
           experiences that feel natural, fast, and delightful. */}
         </p>
 
