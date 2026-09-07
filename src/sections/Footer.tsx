@@ -10,6 +10,7 @@ export const Footer = () => {
           fontSize={16}
           color="#ffffff"          // ← light color for dark footer
           text="Abhishek"
+          inView={true}
         />
         All rights reserved.
       </div>
