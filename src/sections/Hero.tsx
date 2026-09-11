@@ -48,12 +48,12 @@ export const HeroSection = () => {
               className="inline-block text-3xl sm:text-4xl md:text-5xl font-instrument-serif tracking-tight text-white"
             >
               Hey there, I&apos;m <span className="whitespace-nowrap"><span className=" bg-gradient-to-r from-lime-200 via-lime-400 to-lime-700 bg-clip-text text-transparent">Abhishek</span>
-              <DotLottiePlayer
-                src="/peace.lottie"
-                autoplay
-                loop
-                style={{ height: '42px', width: '42px', display: 'inline-block', verticalAlign: 'bottom', marginLeft: '8px', marginBottom: '5px' }}
-              /></span>
+                <DotLottiePlayer
+                  src="/peace.lottie"
+                  autoplay
+                  loop
+                  style={{ height: '42px', width: '42px', display: 'inline-block', verticalAlign: 'bottom', marginLeft: '8px', marginBottom: '5px' }}
+                /></span>
               {/* <Image
                 src={handwave}
                 alt="Hand Wave"

@@ -7,6 +7,7 @@ import { Footer } from "@/sections/Footer";
 import { ProjectsSection } from "@/sections/Projects";
 import { LogoCloud } from "@/sections/logo-cloud";
 import Preloader from "@/components/Preloader";
+import GitHubActivity from "@/components/ui/github-activity";
 
 const logos = [
   {
@@ -112,8 +113,10 @@ export default function Home() {
           <Header />
           <HeroSection />
           <ProjectsSection />
-          <LogoCloud logos={logos} className="lg:mx-20 md:mx-12 sm:mx-12" />
-
+          <LogoCloud logos={logos} className="lg:mx-40 md:mx-12 sm:mx-12" />
+          <div className="flex justify-center items-center my-16 px-4">
+            <GitHubActivity username="Abhijadhav03" />
+          </div>
           <Footer />
         </motion.div>
       )}

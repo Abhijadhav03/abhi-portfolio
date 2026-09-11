@@ -23,7 +23,7 @@ const portfolioProjects = [
   {
     company: "TWYNK",
     year: "2024",
-    title: " TWYNK -Blogging Application",
+    title: " TWYNK ",
     results: [
       { title: "Mern Stack, tailwind css , daisy ui" },
       { title: "Expanded customer reach by 35%" },
@@ -64,78 +64,80 @@ export const ProjectsSection = () => {
 
         <div className="flex flex-col mt-10 md:mt-20 sm:mt-6 gap-20">
           {portfolioProjects.map((project, index) => (
-           <div
-  key={project.title}
-  className="bg-gray-800 rounded-3xl relative overflow-hidden 
+            <div
+              key={project.title}
+              className="bg-gray-800 rounded-3xl relative overflow-hidden 
   after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-tr 
   after:from-emerald-800 after:via-gray-700 after:to-gray-900 after:opacity-40 
   hover:after:opacity-60 after:rounded-3xl after:pointer-events-none 
   transition-opacity px-8 pt-8 md:pt-12 md:px-10  "
->
-  {/* GRAIN: Behind everything, very low opacity */}
-  <div
-    className="absolute inset-0 -z-20 opacity-10 pointer-events-none"
-    style={{
-      backgroundImage: `url(${grainimage.src})`,
-      backgroundSize: "cover",
-    }}
-  />
+            >
+              {/* GRAIN: Behind everything, very low opacity */}
+              <div
+                className="absolute inset-0 -z-20 opacity-10 pointer-events-none"
+                style={{
+                  backgroundImage: `url(${grainimage.src})`,
+                  backgroundSize: "cover",
+                }}
+              />
 
-  {/* CONTENT: Bring above overlays */}
-  <div className="relative z-10 lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
-    {/* TEXT CONTENT */}
-    <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-      <div className="bg-gradient-to-r from-lime-200 via-lime-400 to-lime-700 bg-clip-text text-transparent uppercase text-xs font-semibold tracking-wider gap-2 mb-2 p-2">
-        <span>{project.company}</span>
-        <span> • </span>
-        <span>{project.year}</span>
-      </div>
+              {/* CONTENT: Bring above overlays */}
+              <div className="relative z-10 lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
+                {/* TEXT CONTENT */}
+                <div className={index % 2 === 1 ? "lg:order-2" : ""}>
+                  <div className="bg-gradient-to-r from-lime-200 via-lime-400 to-lime-700 bg-clip-text text-transparent uppercase text-xs font-semibold tracking-wider gap-2 mb-2 p-2">
+                    <span>{project.company}</span>
+                    <span> • </span>
+                    <span>{project.year}</span>
+                  </div>
 
-      <h3 className="font-instrument-serif text-3xl font-semibold p-2 md:mt-5 md:text-4xl">
-        {project.title}
-      </h3>
+                  <h3 className="font-instrument-serif text-3xl  p-2 md:mt-5 md:text-4xl">
+                    {project.title}
+                  </h3>
 
-      <a href={project.link}>View Project</a>
+                  <a
+                    className="text-lg  bg-gradient-to-r from-lime-200 via-lime-400 to-lime-700 bg-clip-text text-transparent p-2 md:mt-5 md:text-2xl"
+                    href={project.link}>View Project</a>
 
-      <hr className="border-t-2 border-white/5 mt-4 md:mt-5" />
+                  <hr className="border-t-2 border-white/5 mt-4 md:mt-5" />
 
-      <ul className="flex flex-col gap-4 mt-4">
-        {project.results.map((result) => (
-          <li
-            className="flex gap-2 text-sm md:text-base text-white/70"
-            key={result.title}
-          >
-            <CheckCircleIcon className="inline-block size-3 md:size-6 text-lime-400" />
-            <span>{result.title}</span>
-          </li>
-        ))}
-      </ul>
+                  <ul className="flex flex-col gap-4 mt-4">
+                    {project.results.map((result) => (
+                      <li
+                        className="flex gap-2 text-sm md:text-base text-white/70"
+                        key={result.title}
+                      >
+                        <CheckCircleIcon className="inline-block size-3 md:size-6 text-lime-400" />
+                        <span>{result.title}</span>
+                      </li>
+                    ))}
+                  </ul>
 
-      <a href={project.link} target="_blank" rel="noopener noreferrer">
-        <button className="bg-white text-gray-950 h-10 w-full md:w-auto px-8 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-4 lg:mb-8 hover:bg-gray-100 transition-colors sm:m-8">
-          <span>View Live Project</span>
-          <ArrowUpRightIcon className="size-4" />
-        </button>
-      </a>
-    </div>
+                  <a href={project.link} target="_blank" rel="noopener noreferrer">
+                    <button className="bg-white text-gray-950 h-10 w-full md:w-auto px-8 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-4 lg:mb-8 hover:bg-gray-100 transition-colors sm:mt-2">
+                      <span>View Live Project</span>
+                      <ArrowUpRightIcon className="size-4" />
+                    </button>
+                  </a>
+                </div>
 
-    {/* IMAGE */}
-    <div className={`mt-8 lg:mt-0 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
-      <Image
-        src={project.image}
-        alt={project.title}
-        className="mt-8 -mb-4 w-full h-auto rounded-xl shadow-2xl lg:relative "
-      />
-    </div>
-  </div>
-</div>
+                {/* IMAGE */}
+                <div className={`mt-8 lg:mt-0 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full rounded-xl shadow-2xl lg:relative "
+                  />
+                </div>
+              </div>
+            </div>
 
           ))}
         </div>
       </div>
     </section>
   );
-};  
+};
 
 
 
