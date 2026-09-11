@@ -155,7 +155,7 @@ async function fetchRepos(login: string): Promise<RepoContribution[]> {
     counts.set(event.repo.name, (counts.get(event.repo.name) ?? 0) + commits);
   }
 
-  return [...counts.entries()]
+  return Array.from(counts.entries())
     .sort(([, a], [, b]) => b - a)
     .slice(0, STACK_LIMIT)
     .map(([fullName, count]) => {
