@@ -6,8 +6,20 @@ import foodfire from "@/assets/images/foodfire.png";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import grainimage from "@/assets/images/grain.jpg";
-
+import Vocably from "@/assets/images/vocablyimage.png"
 const portfolioProjects = [
+  {
+    company: "VOCABLY",
+    year: "2026",
+    title: "Vocably",
+    results: [
+      { title: "Enhanced user experience by 40%" },
+      { title: "Improved site speed by 50%" },
+      { title: "Increased mobile traffic by 35%" },
+    ],
+    link: "https://github.com/Abhijadhav03/Vocablly",
+    image: Vocably,
+  },
   {
     company: "NOTE FORGE",
     year: "2025",

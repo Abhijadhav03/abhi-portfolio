@@ -377,7 +377,7 @@ const ContributionGrid = ({
               <motion.div
                 key={day.date}
                 onPointerEnter={hover(day)}
-                className="shrink-0 rounded-[3px] bg-foreground/[0.08]"
+                className="shrink-0 rounded-[3px] bg-white/[0.15]"
                 style={{ width: cellSize, height: cellSize }}
                 initial={reduceMotion ? false : { opacity: 0, scale: 0.4 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -424,7 +424,7 @@ const Avatar = ({
     layoutId={layoutId}
     transition={transition}
     className={cn(
-      "grid size-7 shrink-0 place-items-center overflow-hidden rounded-full bg-neutral-200 text-[11px] font-medium uppercase text-foreground/70 ring-2 ring-background dark:bg-neutral-800",
+      "grid size-7 shrink-0 place-items-center overflow-hidden rounded-full bg-gray-600 text-[11px] font-medium uppercase text-white/70 ring-2 ring-gray-800",
       "[&_img]:size-full [&_img]:object-cover [&_svg]:size-full",
       className,
     )}
@@ -481,7 +481,7 @@ const Chevron = ({
     strokeLinecap="round"
     strokeLinejoin="round"
     aria-hidden
-    className="size-7 text-[#C4C9CC] dark:text-[#3E4346]"
+    className="size-7 text-white/40"
     initial={false}
     animate={{ rotate: open ? 180 : 0 }}
     transition={transition}
@@ -608,7 +608,7 @@ const GitHubActivity = ({
           data-slot="github-activity-panel"
           data-state={open ? "open" : "closed"}
           className={cn(
-            "absolute inset-x-3 bottom-3 overflow-hidden bg-gray-700 backdrop-blur-xl",
+            "absolute inset-x-3 bottom-3 overflow-hidden bg-gray-800 backdrop-blur-xl",
             open && "top-3",
           )}
           style={{ borderRadius: 18 }}
@@ -644,7 +644,7 @@ const GitHubActivity = ({
                 aria-label={
                   open ? "Hide top repositories" : "Show top repositories"
                 }
-                className="grid size-7 shrink-0 place-items-center rounded-full bg-card"
+                className="grid size-7 shrink-0 place-items-center rounded-full bg-gray-700"
               >
                 <Chevron open={open} transition={transition} />
               </button>

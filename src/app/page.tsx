@@ -114,9 +114,9 @@ export default function Home() {
           <HeroSection />
           <ProjectsSection />
           <LogoCloud logos={logos} className="lg:mx-40 md:mx-12 sm:mx-12" />
-          {/* <div className="flex justify-center items-center my-16 px-4">
+          <div className="flex justify-center items-center my-16 px-4">
             <GitHubActivity username="Abhijadhav03" />
-          </div> */}
+          </div>
           <Footer />
         </motion.div>
       )}
