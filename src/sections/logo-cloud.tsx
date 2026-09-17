@@ -79,15 +79,15 @@ function InfiniteSlider({
 
   const hoverProps = speedOnHover
     ? {
-        onHoverStart: () => {
-          setIsTransitioning(true);
-          setCurrentSpeed(speedOnHover);
-        },
-        onHoverEnd: () => {
-          setIsTransitioning(true);
-          setCurrentSpeed(speed);
-        },
-      }
+      onHoverStart: () => {
+        setIsTransitioning(true);
+        setCurrentSpeed(speedOnHover);
+      },
+      onHoverEnd: () => {
+        setIsTransitioning(true);
+        setCurrentSpeed(speed);
+      },
+    }
     : {};
 
   return (
@@ -120,50 +120,50 @@ export function LogoCloud({
   ...props
 }: LogoCloudProps) {
   return (
-  <section
-    {...props}
-    className={cn(
-      'py-16  dark:bg-gray-900 text-center',
-      className
-    )}
-  >
-    <h2 className="text-3xl md:text-4xl font-instrument-serif text-white text-gray-900">
-      Stack I Use
-    </h2>
-    <p className="mt-3 text-base md:text-lg text-white/50 mx-6 ">
-   From front-end finesse to back-end muscle - these are the tools I use to bring ideas to life.
-    </p>
-
-    <div
+    <section
+      {...props}
       className={cn(
-        'mt-10 py-4 bg-gray-850 text-foreground',
-        '[mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]'
+        'py-16  dark:bg-gray-900 text-center',
+        className
       )}
     >
-      <InfiniteSlider
-        gap={gap}
-        speed={speed}
-        speedOnHover={speedOnHover}
-        direction={direction}
-        reverse={reverse}
+      <h2 className="text-4xl md:text-5xl font-instrument-serif text-white text-gray-900">
+        Stack I Use
+      </h2>
+      <p className="mt-3 text-base md:text-lg text-white/50 mx-6 ">
+        From front-end finesse to back-end muscle - these are the tools I use to bring ideas to life.
+      </p>
+
+      <div
+        className={cn(
+          'mt-10 py-4 bg-gray-850 text-foreground',
+          '[mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]'
+        )}
       >
-        {logos.map((logo) => (
-          <img
-            alt={logo.alt}
-            className={cn(
-              'h-12 w-12 md:h-12 md:w-12 pointer-events-none select-none gap-12 object-fit-contain',
-              'grayscale brightness-125 contrast-90 opacity-80',
-              'dark:brightness-75 dark:contrast-125 hover:grayscale-0 hover:opacity-100 transition duration-300'
-            )}
-            height={logo.height || 'auto'}
-            key={`logo-${logo.alt}`}
-            loading="lazy"
-            src={logo.src}
-            width={logo.width || 'auto'}
-          />
-        ))}
-      </InfiniteSlider>
-    </div>
-  </section>
-);
+        <InfiniteSlider
+          gap={gap}
+          speed={speed}
+          speedOnHover={speedOnHover}
+          direction={direction}
+          reverse={reverse}
+        >
+          {logos.map((logo) => (
+            <img
+              alt={logo.alt}
+              className={cn(
+                'h-12 w-12 md:h-12 md:w-12 pointer-events-none select-none gap-12 object-fit-contain',
+                'grayscale brightness-125 contrast-90 opacity-80',
+                'dark:brightness-75 dark:contrast-125 hover:grayscale-0 hover:opacity-100 transition duration-300'
+              )}
+              height={logo.height || 'auto'}
+              key={`logo-${logo.alt}`}
+              loading="lazy"
+              src={logo.src}
+              width={logo.width || 'auto'}
+            />
+          ))}
+        </InfiniteSlider>
+      </div>
+    </section>
+  );
 }

@@ -82,7 +82,7 @@ export const ProjectsSection = () => {
   after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-tr 
   after:from-emerald-800 after:via-gray-700 after:to-gray-900 after:opacity-40 
   hover:after:opacity-60 after:rounded-3xl after:pointer-events-none 
-  transition-opacity px-8 pt-8 md:pt-12 md:px-10  "
+  transition-opacity px-8 pt-8 md:pt-12 md:px-10 sticky top-16  "
             >
               {/* GRAIN: Behind everything, very low opacity */}
               <div

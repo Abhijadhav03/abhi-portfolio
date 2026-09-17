@@ -7,7 +7,7 @@ import { Footer } from "@/sections/Footer";
 import { ProjectsSection } from "@/sections/Projects";
 import { LogoCloud } from "@/sections/logo-cloud";
 import Preloader from "@/components/Preloader";
-import GitHubActivity from "@/components/ui/github-activity";
+import { GitHubActivitySection } from "@/sections/GitHubActivitySection";
 
 const logos = [
   {
@@ -105,7 +105,7 @@ export default function Home() {
       {showPreloader && <Preloader onComplete={handleComplete} />}
       {!showPreloader && (
         <motion.div
-          className="relative min-h-screen overflow-x-hidden text-white bg-gradient-to-t from-gray-900 via-gray-900 to-gray-800"
+          className="relative min-h-screen overflow-x-clip text-white bg-gradient-to-t from-gray-900 via-gray-900 to-gray-800"
           initial="hidden"
           animate="visible"
           variants={contentVariants}
@@ -114,9 +114,7 @@ export default function Home() {
           <HeroSection />
           <ProjectsSection />
           <LogoCloud logos={logos} className="lg:mx-40 md:mx-12 sm:mx-12" />
-          <div className="flex justify-center items-center my-16 px-4">
-            <GitHubActivity username="Abhijadhav03" />
-          </div>
+          <GitHubActivitySection />
           <Footer />
         </motion.div>
       )}

@@ -70,6 +70,8 @@ export const HeroSection = () => {
           {/* and coffee enthusiast 🍵. */}
           {/* I build modern web
           experiences that feel natural, fast, and delightful. */}
+          {/* <Highlighter action="underline" isView={true} color="#BCEF6B">A FullStack Developer</Highlighter> Focused on Building Scalable High Performant Web and Mobile Applications. and reliable backend systems. */}
+
         </p>
 
         {/* Buttons */}
