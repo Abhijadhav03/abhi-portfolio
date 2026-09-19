@@ -12,11 +12,13 @@ const portfolioProjects = [
     company: "VOCABLY",
     year: "2026",
     title: "Vocably",
-    results: [
-      { title: "Enhanced user experience by 40%" },
-      { title: "Improved site speed by 50%" },
-      { title: "Increased mobile traffic by 35%" },
-    ],
+    description: "An AI-powered language learning app built with React Native and Expo, featuring interactive flashcards, immersive roleplay conversations, pronunciation practice, and offline-first learning for a seamless mobile experience.",
+    // results: [
+    //   { title: "Enhanced user experience by 40%" },
+    //   { title: "Improved site speed by 50%" },
+    //   { title: "Increased mobile traffic by 35%" },
+    // ],
+    githublink: "https://github.com/Abhijadhav03/Vocablly",
     link: "https://github.com/Abhijadhav03/Vocablly",
     image: Vocably,
   },
@@ -24,11 +26,13 @@ const portfolioProjects = [
     company: "NOTE FORGE",
     year: "2025",
     title: "Note Forge",
-    results: [
-      { title: "Enhanced user experience by 40%" },
-      { title: "Improved site speed by 50%" },
-      { title: "Increased mobile traffic by 35%" },
-    ],
+    // results: [
+    //   { title: "Enhanced user experience by 40%" },
+    //   { title: "Improved site speed by 50%" },
+    //   { title: "Increased mobile traffic by 35%" },
+    // ],
+    description: "A modern full-stack note-taking workspace built with Next.js and PostgreSQL, featuring nested notebooks, rich document management, secure authentication, and a fast, responsive user experience.",
+    githublink: "https://github.com/Abhijadhav03/noteforge",
     link: "https://github.com/Abhijadhav03/noteforge",
     image: noteforge,
   },
@@ -36,11 +40,16 @@ const portfolioProjects = [
     company: "TWYNK",
     year: "2024",
     title: " TWYNK ",
-    results: [
-      { title: "Mern Stack, tailwind css , daisy ui" },
-      { title: "Expanded customer reach by 35%" },
-      { title: "Increased brand awareness by 15%" },
+    description: "A full-stack social platform featuring personalized feeds, real-time interactions, user connections, and a highly responsive experience powered by intelligent caching and optimistic updates.",
+    // results: [
+    //   { title: "Mern Stack, tailwind css , daisy ui" },
+    //   { title: "Expanded customer reach by 35%" },
+    //   { title: "Increased brand awareness by 15%" },
+    // ],
+    TechStack: [
+      "React.js", "Express.js", "MongoDB", "React Query", "Tailwind CSS"
     ],
+    githublink: "https://github.com/Abhijadhav03/Twynk",
     link: "https://twynk.onrender.com/",
     image: twynkpage,
   },
@@ -48,11 +57,13 @@ const portfolioProjects = [
     company: " FOOD FIRE",
     year: "2024",
     title: "Food Delivery App",
-    results: [
-      { title: "Enhanced user experience by 40%" },
-      { title: "Improved site speed by 50%" },
-      { title: "Increased mobile traffic by 35%" },
-    ],
+    description: "Learning Purpose Project",
+    // results: [
+    //   { title: "Enhanced user experience by 40%" },
+    //   { title: "Improved site speed by 50%" },
+    //   { title: "Increased mobile traffic by 35%" },
+    // ],
+    githublink: "https://github.com/Abhijadhav03/noteforge",
     link: "https://react-learning-puce.vercel.app/",
     image: foodfire,
   },
@@ -86,7 +97,7 @@ export const ProjectsSection = () => {
             >
               {/* GRAIN: Behind everything, very low opacity */}
               <div
-                className="absolute inset-0 -z-20 opacity-10 pointer-events-none"
+                className="absolute inset-0 -z-20 opacity-5 pointer-events-none"
                 style={{
                   backgroundImage: `url(${grainimage.src})`,
                   backgroundSize: "cover",
@@ -94,7 +105,7 @@ export const ProjectsSection = () => {
               />
 
               {/* CONTENT: Bring above overlays */}
-              <div className="relative z-10 lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
+              <div className="relative z-10 lg:grid lg:grid-cols-2 lg:gap-16 lg:items-start">
                 {/* TEXT CONTENT */}
                 <div className={index % 2 === 1 ? "lg:order-2" : ""}>
                   <div className="bg-gradient-to-r from-lime-200 via-lime-400 to-lime-700 bg-clip-text text-transparent uppercase text-xs font-semibold tracking-wider gap-2 mb-2 p-2">
@@ -106,15 +117,16 @@ export const ProjectsSection = () => {
                   <h3 className="font-instrument-serif text-3xl  p-2 md:mt-5 md:text-4xl">
                     {project.title}
                   </h3>
-
+                  {/* 
                   <a
                     className="text-lg  bg-gradient-to-r from-lime-200 via-lime-400 to-lime-700 bg-clip-text text-transparent p-2 md:mt-5 md:text-2xl"
-                    href={project.link}>View Project</a>
+                    href={project.link}>View Project</a> */}
 
                   <hr className="border-t-2 border-white/5 mt-4 md:mt-5" />
 
                   <ul className="flex flex-col gap-4 mt-4">
-                    {project.results.map((result) => (
+                    <li className="text-xl md:text-lg lg:text-base sm:text-sm text-white/60 mt-2 max-width-md mx-auto">{project?.description}</li>
+                    {/* {project?.results?.map((result) => (
                       <li
                         className="flex gap-2 text-sm md:text-base text-white/70"
                         key={result.title}
@@ -122,7 +134,7 @@ export const ProjectsSection = () => {
                         <CheckCircleIcon className="inline-block size-3 md:size-6 text-lime-400" />
                         <span>{result.title}</span>
                       </li>
-                    ))}
+                    ))} */}
                   </ul>
 
                   <a href={project.link} target="_blank" rel="noopener noreferrer">
@@ -134,7 +146,7 @@ export const ProjectsSection = () => {
                 </div>
 
                 {/* IMAGE */}
-                <div className={`mt-8 lg:mt-0 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
+                <div className={`mt-2 lg:mt-0 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
                   <Image
                     src={project.image}
                     alt={project.title}
