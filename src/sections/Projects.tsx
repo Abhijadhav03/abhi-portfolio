@@ -124,7 +124,7 @@ export const ProjectsSection = () => {
 
                   <hr className="border-t-2 border-white/5 mt-4 md:mt-5" />
 
-                  <ul className="flex flex-col gap-4 mt-4">
+                  <ul className="flex flex-col gap-4 mt-4 mb-3 md:mb-3">
                     <li className="text-xl md:text-lg lg:text-base sm:text-sm text-white/60 mt-2 max-width-md mx-auto">{project?.description}</li>
                     {/* {project?.results?.map((result) => (
                       <li
