@@ -4,6 +4,7 @@ import { Calistoga, Instrument_Serif, Inter } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 import MusicToggle from "@/components/MusicToggle";
 import OnekoCat from "@/components/onekocat";
+import ClickEffects from "@/components/ClickEffects";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
@@ -40,6 +41,7 @@ export default function RootLayout({
       >
         {children}
         <OnekoCat />
+        <ClickEffects />
         <div className="fixed bottom-6 right-6 z-[10000]">
           <MusicToggle />
         </div>
