@@ -5,6 +5,7 @@ import { twMerge } from "tailwind-merge";
 import MusicToggle from "@/components/MusicToggle";
 import OnekoCat from "@/components/onekocat";
 import ClickEffects from "@/components/ClickEffects";
+import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
@@ -39,6 +40,7 @@ export default function RootLayout({
           "bg-gradient-to-t from-gray-900 via-gray-900 to-gray-800 text-white antialiased font-sans min-h-screen"
         )}
       >
+        <SmoothScroll />
         {children}
         <OnekoCat />
         <ClickEffects />
