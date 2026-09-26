@@ -17,9 +17,13 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "My Portfolio",
-  icons: "/logo.png",
-  description: "abhi's portfolio website",
+  title: "Abhi's Portfolio",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
+  description: "Abhi's portfolio website",
 };
 
 export default function RootLayout({
