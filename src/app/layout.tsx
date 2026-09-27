@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import { Calistoga, Instrument_Serif, Inter } from "next/font/google";
 import { twMerge } from "tailwind-merge";
+import { Analytics } from "@vercel/analytics/next";
 import MusicToggle from "@/components/MusicToggle";
 import OnekoCat from "@/components/onekocat";
 import ClickEffects from "@/components/ClickEffects";
@@ -51,6 +52,7 @@ export default function RootLayout({
         <div className="fixed bottom-6 right-6 z-[10000]">
           <MusicToggle />
         </div>
+        <Analytics />
       </body>
     </html>
   );
