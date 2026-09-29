@@ -3,6 +3,31 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;700&display=swap');
 
+/* Self-host Times New Roman for Android (not bundled on Android devices) */
+@font-face {
+  font-family: 'Times New Roman';
+  src: url('/fonts/times.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Times New Roman';
+  src: url('/fonts/timesbd.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Times New Roman';
+  src: url('/fonts/timesi.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
 html {
   scroll-behavior: smooth;
 }
