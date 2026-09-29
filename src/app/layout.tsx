@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import { Calistoga, Instrument_Serif, Inter } from "next/font/google";
 import { twMerge } from "tailwind-merge";
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/react";
 import MusicToggle from "@/components/MusicToggle";
 import OnekoCat from "@/components/onekocat";
 import ClickEffects from "@/components/ClickEffects";
