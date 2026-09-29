@@ -65,7 +65,7 @@ export const HeroSection = () => {
 
 
         {/* Subtext */}
-        <p className="text-white/70 max-w-xl text-base sm:text-l md:text-lg">
+        <p className="w-full max-w-[19rem] px-3 text-center text-sm text-white/70 sm:max-w-xl sm:px-0 sm:text-lg">
           <Highlighter action="underline" isView={true} color="#BCEF6B">A Frontend Engineer</Highlighter> Focused on Building Scalable High Performant Web Applications
           {/* and coffee enthusiast 🍵. */}
           {/* I build modern web

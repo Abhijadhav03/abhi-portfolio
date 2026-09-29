@@ -26,15 +26,16 @@ export type RepoContribution = {
 };
 
 const DEFAULT_ACCENT = "#39d353";
-const DEFAULT_CELL_SIZE = 11;
+const MOBILE_CELL_SIZE = 11;
+const LAPTOP_CELL_SIZE = 13.5;
 const DEFAULT_LABEL = "Top contributions in:";
 const DEFAULT_MONTHS = 12;
 const WEEKS_PER_MONTH = 365.25 / 12 / 7;
 const STACK_LIMIT = 3;
-const MIN_CARD_WIDTH = 320;
+const MIN_CARD_WIDTH = 350;
 const MIN_LABEL_WEEKS = 3;
 // the p-4 on the card, both sides; the width math below has to add it back
-const CARD_PADDING = 32;
+const CARD_PADDING = 12;
 
 const gapFor = (cellSize: number) => Math.max(2, Math.round(cellSize / 4));
 // never zero: weeks.slice(-0) would hand back the whole history instead of nothing
@@ -43,6 +44,33 @@ const weeksFor = (months: number) =>
 
 const useIsoLayoutEffect =
   typeof window !== "undefined" ? React.useLayoutEffect : React.useEffect;
+
+function useResponsiveCellSize(customCellSize?: number) {
+  const [size, setSize] = React.useState<number>(() => {
+    if (typeof window !== "undefined") {
+      return window.innerWidth >= 1024 ? LAPTOP_CELL_SIZE : MOBILE_CELL_SIZE;
+    }
+    return LAPTOP_CELL_SIZE;
+  });
+
+  useIsoLayoutEffect(() => {
+    if (customCellSize !== undefined) {
+      setSize(customCellSize);
+      return;
+    }
+
+    const mql = window.matchMedia("(min-width: 1024px)");
+    const updateSize = () => {
+      setSize(mql.matches ? LAPTOP_CELL_SIZE : MOBILE_CELL_SIZE);
+    };
+
+    updateSize();
+    mql.addEventListener("change", updateSize);
+    return () => mql.removeEventListener("change", updateSize);
+  }, [customCellSize]);
+
+  return customCellSize ?? size;
+}
 
 const EASE_OUT = [0.22, 1, 0.36, 1] as const;
 const SPRING = { type: "spring", bounce: 0.2, duration: 0.62 } as const;
@@ -513,7 +541,7 @@ const GitHubActivity = ({
   repos: reposProp = [],
   year,
   accent = DEFAULT_ACCENT,
-  cellSize = DEFAULT_CELL_SIZE,
+  cellSize: cellSizeProp,
   months = DEFAULT_MONTHS,
   showMonths = false,
   label = DEFAULT_LABEL,
@@ -523,6 +551,7 @@ const GitHubActivity = ({
   style,
   ...props
 }: GitHubActivityProps) => {
+  const cellSize = useResponsiveCellSize(cellSizeProp);
   const reduceMotion = useReducedMotion();
   const uid = React.useId();
   const [openState, setOpenState] = React.useState(defaultOpen);

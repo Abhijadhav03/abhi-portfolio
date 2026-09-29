@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     apple: "/logo.png",
   },
   description: "Abhi's portfolio website",
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({

@@ -104,19 +104,21 @@ export default function Home() {
     <>
       {showPreloader && <Preloader onComplete={handleComplete} />}
       {!showPreloader && (
-        <motion.div
-          className="relative min-h-screen overflow-x-clip text-white bg-gradient-to-t from-gray-900 via-gray-900 to-gray-800"
-          initial="hidden"
-          animate="visible"
-          variants={contentVariants}
-        >
-          <Header />
-          <HeroSection />
-          <ProjectsSection />
-          <LogoCloud logos={logos} className="lg:mx-40 md:mx-12 sm:mx-12" />
-          <GitHubActivitySection />
+        <div className="relative min-h-screen">
+          <motion.div
+            className="relative z-10 min-h-screen overflow-x-clip text-white bg-gradient-to-t from-gray-900 via-gray-900 to-gray-900 "
+            initial="hidden"
+            animate="visible"
+            variants={contentVariants}
+          >
+            <Header />
+            <HeroSection />
+            <ProjectsSection />
+            <LogoCloud logos={logos} className="lg:mx-40 md:mx-12 sm:mx-12" />
+            <GitHubActivitySection />
+          </motion.div>
           <Footer />
-        </motion.div>
+        </div>
       )}
     </>
   );

@@ -77,9 +77,8 @@ export default function Preloader({ onComplete }: PreloaderProps) {
             variants={opacity}
             initial="initial"
             animate="enter"
-            className="flex items-center text-white text-4xl md:text-5xl lg:text-6xl absolute z-10 font-medium"
+            className="flex items-center text-white text-4xl md:text-5xl lg:text-6xl absolute z-10 font-normal tracking-wide select-none"
           >
-            {/* <span className="block w-2.5 h-2.5 bg-white rounded-full mr-2.5"></span> */}
             {words[index]}
           </motion.p>
           <svg className="absolute top-0 w-full h-[calc(100%+300px)]">
