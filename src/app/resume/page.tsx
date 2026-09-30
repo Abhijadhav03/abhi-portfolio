@@ -111,7 +111,7 @@ export default function ResumePage() {
       <Header />
 
       <main className="w-full max-w-[860px] mx-auto px-3 sm:px-4 pt-24 sm:pt-28 pb-16 relative z-10">
-        {/* Minimal Action Bar */}
+        {/* Minimal Back Button */}
         <div className="flex items-center justify-between gap-3 mb-3">
           <Link
             href="/"
@@ -120,49 +120,6 @@ export default function ResumePage() {
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Back</span>
           </Link>
-
-          {/* Actions */}
-          <div className="flex items-center gap-2">
-            {/* Copy Resume Link */}
-            <button
-              onClick={handleCopyLink}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-white/5 hover:bg-white/10 border border-white/15 text-white/90 hover:text-white transition-all backdrop-blur-md"
-              title="Copy Google Drive resume link"
-            >
-              {copied ? (
-                <>
-                  <Check className="w-3.5 h-3.5 text-lime-400" />
-                  <span className="text-lime-400 font-semibold">Copied</span>
-                </>
-              ) : (
-                <>
-                  <Copy className="w-3.5 h-3.5" />
-                  <span>Copy Link</span>
-                </>
-              )}
-            </button>
-
-            {/* Open in Drive */}
-            <a
-              href={RESUME_DRIVE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-white/5 hover:bg-white/10 border border-white/15 text-white/80 hover:text-white transition-all backdrop-blur-md"
-              title="Open in Google Drive"
-            >
-              <ExternalLink className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Drive</span>
-            </a>
-
-            {/* Download Resume */}
-            <button
-              onClick={handleDownload}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold bg-lime-400 hover:bg-lime-300 text-gray-950 transition-all shadow-[0_0_20px_rgba(190,242,100,0.25)] hover:scale-[1.02] active:scale-[0.98]"
-            >
-              <Download className="w-3.5 h-3.5" />
-              <span>Download</span>
-            </button>
-          </div>
         </div>
 
         {/* Minimal Resume Viewer */}
@@ -176,25 +133,65 @@ export default function ResumePage() {
             {/* Viewer Header */}
             <div className="px-3 sm:px-4 py-2 bg-white/5 border-b border-white/10 flex items-center justify-between text-xs text-white/70">
               <div className="flex items-center gap-2">
-                <FileText className="w-3.5 h-3.5 text-lime-400" />
-
-
-                {/* View Mode Toggle: Fit Width vs Google Drive */}
 
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1 sm:gap-1.5">
+                {/* Copy Link Icon */}
+                <button
+                  onClick={handleCopyLink}
+                  className="p-1.5 rounded-md hover:bg-white/10 text-white/70 hover:text-white transition-colors"
+                  title="Copy resume link"
+                  aria-label="Copy resume link"
+                >
+                  {copied ? (
+                    <Check className="w-3.5 h-3.5 text-lime-400" />
+                  ) : (
+                    <Copy className="w-3.5 h-3.5" />
+                  )}
+                </button>
+
+                {/* Open in Drive Icon */}
+                <a
+                  href={RESUME_DRIVE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-1.5 rounded-md hover:bg-white/10 text-white/70 hover:text-white transition-colors"
+                  title="Open in Google Drive"
+                  aria-label="Open in Google Drive"
+                >
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+
+                {/* Download PDF Icon */}
+                <button
+                  onClick={handleDownload}
+                  className="p-1.5 rounded-md hover:bg-white/10 text-white/70 hover:text-lime-300 transition-colors"
+                  title="Download PDF"
+                  aria-label="Download PDF"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                </button>
+
+                {/* Subtle Divider */}
+                <span className="w-px h-3.5 bg-white/15 mx-0.5" />
+
+                {/* Refresh Icon */}
                 <button
                   onClick={handleRefresh}
-                  className="p-1 rounded-md hover:bg-white/10 text-white/60 hover:text-white transition-colors"
+                  className="p-1.5 rounded-md hover:bg-white/10 text-white/70 hover:text-white transition-colors"
                   title="Reload document"
+                  aria-label="Reload document"
                 >
                   <RefreshCw className="w-3.5 h-3.5" />
                 </button>
+
+                {/* Fullscreen Icon */}
                 <button
                   onClick={() => setIsFullscreen((prev) => !prev)}
-                  className="p-1 rounded-md hover:bg-white/10 text-white/60 hover:text-white transition-colors"
+                  className="p-1.5 rounded-md hover:bg-white/10 text-white/70 hover:text-white transition-colors"
                   title={isFullscreen ? "Exit Fullscreen (ESC)" : "Fullscreen"}
+                  aria-label={isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
                 >
                   {isFullscreen ? (
                     <Minimize2 className="w-3.5 h-3.5 text-lime-300" />
