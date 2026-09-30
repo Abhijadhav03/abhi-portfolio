@@ -1,13 +1,15 @@
 "use client";
 import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
-import { HeroSection } from "@/sections/Hero";
-import { Header } from "@/sections/Header";
-import { Footer } from "@/sections/Footer";
-import { ProjectsSection } from "@/sections/Projects";
-import { LogoCloud } from "@/sections/logo-cloud";
-import Preloader from "@/components/Preloader";
-import { GitHubActivitySection } from "@/sections/GitHubActivitySection";
+import dynamic from "next/dynamic";
+
+const Preloader = dynamic(() => import("@/components/Preloader"), { ssr: false });
+const Header = dynamic(() => import("@/sections/Header").then((m) => m.Header));
+const HeroSection = dynamic(() => import("@/sections/Hero").then((m) => m.HeroSection));
+const ProjectsSection = dynamic(() => import("@/sections/Projects").then((m) => m.ProjectsSection));
+const LogoCloud = dynamic(() => import("@/sections/logo-cloud").then((m) => m.LogoCloud));
+const GitHubActivitySection = dynamic(() => import("@/sections/GitHubActivitySection").then((m) => m.GitHubActivitySection));
+const Footer = dynamic(() => import("@/sections/Footer").then((m) => m.Footer));
 
 const logos = [
   {

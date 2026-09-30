@@ -2,12 +2,14 @@
 import type { Metadata } from "next";
 import { Calistoga, Instrument_Serif, Inter } from "next/font/google";
 import { twMerge } from "tailwind-merge";
+import dynamic from "next/dynamic";
 import { Analytics } from "@vercel/analytics/react";
-import MusicToggle from "@/components/MusicToggle";
-import OnekoCat from "@/components/onekocat";
-import ClickEffects from "@/components/ClickEffects";
-import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
+
+const MusicToggle = dynamic(() => import("@/components/MusicToggle"), { ssr: false });
+const OnekoCat = dynamic(() => import("@/components/onekocat"), { ssr: false });
+const ClickEffects = dynamic(() => import("@/components/ClickEffects"), { ssr: false });
+const SmoothScroll = dynamic(() => import("@/components/SmoothScroll"), { ssr: false });
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const calistoga = Calistoga({ subsets: ["latin"], variable: "--font-serif", weight: "400" });

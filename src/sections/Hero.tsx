@@ -89,9 +89,7 @@ export const HeroSection = () => {
             className="bg-lime-400/10 text-white border border-white/20 hover:bg-lime-600/10 flex items-center gap-2 px-5 py-2.5 rounded-full transition-all duration-300"
           >
             <a
-              href="https://www.google.com"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/resume"
               className="flex items-center gap-2"
             >
               <span>📄</span>

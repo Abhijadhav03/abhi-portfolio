@@ -1,8 +1,10 @@
 // app/about/page.tsx
 
-import { HyperText } from '@/components/ui/hyper-text';
-import { Header } from './../../sections/Header';
-import { Footer } from '@/sections/Footer';
+import dynamic from "next/dynamic";
+
+const Header = dynamic(() => import("./../../sections/Header").then((m) => m.Header));
+const Footer = dynamic(() => import("@/sections/Footer").then((m) => m.Footer));
+const HyperText = dynamic(() => import("@/components/ui/hyper-text").then((m) => m.HyperText));
 export default function AboutPage() {
   return (
     <>

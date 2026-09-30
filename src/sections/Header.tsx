@@ -64,6 +64,7 @@ export const Header = () => {
             <a href="/blog" className="nav-item text-lg text-lime-200 w-full text-center" onClick={() => setMenuOpen(false)}>
               Blog
             </a>
+        
             <a
               href="#"
               className="nav-item bg-white text-gray-900 hover:bg-white/20 hover:text-lime-300 text-lg font-semibold w-full text-center"
