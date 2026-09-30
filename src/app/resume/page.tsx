@@ -31,8 +31,21 @@ export default function ResumePage() {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [iframeLoaded, setIframeLoaded] = useState(false);
-  const [viewerSource, setViewerSource] = useState<"fit" | "drive">("fit");
+  const [isMobile, setIsMobile] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      const userAgent = typeof navigator !== "undefined" ? navigator.userAgent : "";
+      const isMobileDevice =
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent) ||
+        window.innerWidth < 768;
+      setIsMobile(isMobileDevice);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     if (toastMessage) {
@@ -91,10 +104,9 @@ export default function ResumePage() {
     }
   };
 
-  const currentIframeSrc =
-    viewerSource === "fit"
-      ? `${RESUME_LOCAL_PDF}#view=FitH&toolbar=0&navpanes=0`
-      : RESUME_PREVIEW_URL;
+  const currentIframeSrc = isMobile
+    ? RESUME_PREVIEW_URL
+    : `${RESUME_LOCAL_PDF}#view=FitH&toolbar=0&navpanes=0`;
 
   return (
     <div className="relative min-h-screen bg-gradient-to-t from-gray-900 via-gray-900 to-gray-800 text-white overflow-x-hidden selection:bg-lime-400 selection:text-gray-950">
@@ -219,7 +231,7 @@ export default function ResumePage() {
               )}
 
               <iframe
-                key={viewerSource}
+                key={isMobile ? "mobile" : "desktop"}
                 ref={iframeRef}
                 src={currentIframeSrc}
                 className="w-full h-full border-0 block"
