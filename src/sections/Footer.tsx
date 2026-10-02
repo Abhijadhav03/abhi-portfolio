@@ -67,9 +67,9 @@ export const Footer = () => {
 
         {/* Bottom Bar: Spotify card, Signature & Links */}
         <div className="relative z-10 pt-10 mt-8 border-t border-emerald-400/15 text-sm">
-          <div className="grid grid-cols-[1fr_auto] items-center gap-4 md:grid md:grid-cols-3 md:items-center md:gap-6">
+          <div className="grid grid-cols-2 items-stretch gap-4 sm:gap-6 lg:grid lg:grid-cols-3 lg:items-center lg:gap-6">
             {/* Left: On repeat */}
-            <div className="col-start-1 row-start-1 flex w-full max-w-[320px] flex-col items-start gap-3 md:col-auto md:row-auto md:w-auto md:max-w-none md:justify-self-start">
+            <div className="col-start-1 row-start-1 flex w-full max-w-[320px] flex-col items-start gap-3 lg:col-auto lg:row-auto lg:w-auto lg:max-w-none lg:justify-self-start">
               <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-100/60">
                 Last Played
               </h3>
@@ -79,7 +79,7 @@ export const Footer = () => {
             </div>
 
             {/* Center: Signature */}
-            <div className="col-start-1 row-start-2 flex items-center justify-start md:col-auto md:row-auto md:w-auto md:justify-self-center md:justify-center">
+            <div className="col-start-1 row-start-2 flex w-full items-start justify-start lg:col-auto lg:row-auto lg:w-auto lg:justify-self-center lg:justify-center">
               <Signature
                 className="inline-block align-middle"
                 fontSize={20}
@@ -90,9 +90,9 @@ export const Footer = () => {
             </div>
 
             {/* Right: Social & Back-to-top */}
-            <div className="col-start-2 row-start-1 row-span-2 flex flex-col items-end justify-center gap-y-2 text-xs text-emerald-100/75 md:col-auto md:row-auto md:flex-row md:items-center md:justify-self-end md:gap-x-6 md:text-sm">
+            <div className="col-start-2 row-start-1 row-span-2 flex h-full flex-col items-end justify-between gap-y-2 text-sm text-emerald-100/75 sm:text-lg lg:col-auto lg:row-auto lg:h-auto lg:flex-row lg:items-center lg:justify-self-end lg:gap-x-4 lg:text-base">
               <a
-                href="https://www.linkedin.com/in/abhijadhav03"
+                href="https://www.linkedin.com/in/abhishek-jadhav-p776/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white transition-colors"
@@ -115,7 +115,7 @@ export const Footer = () => {
               </a>
               <button
                 onClick={scrollToTop}
-                className="hover:text-white transition-colors flex items-center gap-1 group cursor-pointer ml-0 md:ml-2"
+                className="hover:text-white transition-colors flex items-center gap-1 group cursor-pointer ml-0 lg:ml-2"
                 aria-label="Scroll to top"
               >
                 <span>Top</span>
