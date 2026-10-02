@@ -4,15 +4,10 @@ import { Signature } from "@/components/signature";
 import { SpotifyCard } from "@/components/spotify-card";
 import { ParallaxFooter } from "@/components/effects/parallax-footer";
 import grainimage from "@/assets/images/grain.jpg";
-import { ArrowUpRight, ArrowUp } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { SiX } from "@icons-pack/react-simple-icons";
 
 export const Footer = () => {
-  const scrollToTop = () => {
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  };
-
   return (
     <ParallaxFooter
       id="footer"
@@ -67,19 +62,14 @@ export const Footer = () => {
 
         {/* Bottom Bar: Spotify card, Signature & Links */}
         <div className="relative z-10 pt-10 mt-8 border-t border-emerald-400/15 text-sm">
-          <div className="grid grid-cols-2 items-stretch gap-4 sm:gap-6 lg:grid lg:grid-cols-3 lg:items-center lg:gap-6">
-            {/* Left: On repeat */}
-            <div className="col-start-1 row-start-1 flex w-full max-w-[320px] flex-col items-start gap-3 lg:col-auto lg:row-auto lg:w-auto lg:max-w-none lg:justify-self-start">
-              <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-100/60">
-                Last Played
-              </h3>
-              <div className="w-full max-w-[320px]">
-                <SpotifyCard />
-              </div>
-            </div>
+          <div className="grid grid-cols-[1fr_auto] items-end gap-x-4 gap-y-4 lg:grid lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:items-center lg:gap-6">
+            {/* Label: mobile = left of signature row, desktop = above card */}
+            <h3 className="col-start-1 row-start-1 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-100/60">
+              Last Played
+            </h3>
 
-            {/* Center: Signature */}
-            <div className="col-start-1 row-start-2 flex w-full items-start justify-start lg:col-auto lg:row-auto lg:w-auto lg:justify-self-center lg:justify-center">
+            {/* Signature: desktop only (center column) */}
+            <div className="hidden lg:flex lg:col-start-2 lg:row-span-2 lg:items-center lg:justify-center">
               <Signature
                 className="inline-block align-middle"
                 fontSize={20}
@@ -89,8 +79,13 @@ export const Footer = () => {
               />
             </div>
 
-            {/* Right: Social & Back-to-top */}
-            <div className="col-start-2 row-start-1 row-span-2 flex h-full flex-col items-end justify-between gap-y-2 text-sm text-emerald-100/75 sm:text-lg lg:col-auto lg:row-auto lg:h-auto lg:flex-row lg:items-center lg:justify-self-end lg:gap-x-4 lg:text-base">
+            {/* Card: mobile = full-width row, desktop = left column */}
+            <div className="col-start-1 col-span-2 row-start-2 w-full lg:col-span-1 lg:max-w-[380px]">
+              <SpotifyCard className="lg:max-h-[108px]" />
+            </div>
+
+            {/* Social & Back-to-top: mobile = compact row under card, desktop = right column */}
+            <div className="col-start-1 col-span-2 row-start-3 flex flex-wrap items-center justify-between gap-x-4 text-sm text-emerald-100/75 sm:text-lg lg:col-span-1 lg:col-start-3 lg:row-start-1 lg:row-span-2 lg:flex-nowrap lg:justify-self-end lg:gap-x-4 lg:text-base">
               <a
                 href="https://www.linkedin.com/in/abhishek-jadhav-p776/"
                 target="_blank"
@@ -113,21 +108,23 @@ export const Footer = () => {
               >
                 Resume
               </a>
-              <button
-                onClick={scrollToTop}
-                className="hover:text-white transition-colors flex items-center gap-1 group cursor-pointer ml-0 lg:ml-2"
-                aria-label="Scroll to top"
+              <a
+                href="https://x.com/abhijadhav03"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors flex items-center gap-1.5"
+                aria-label="X (Twitter)"
               >
-                <span>Top</span>
-                <ArrowUp className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" />
-              </button>
+                {/* <span>X</span> */}
+                <SiX size={14} />
+              </a>
             </div>
           </div>
 
           {/* Bottom Copyright Line */}
           <div className="mt-4 pt-4 flex items-center justify-center text-center text-xs text-emerald-100/50">
             <span>
-              &copy; {new Date().getFullYear()} Abhishek Jadhav&nbsp;&nbsp;●&nbsp;&nbsp;Created with lots of Procrastination 🥲 &amp; Inspiration ☕️
+              &copy; {new Date().getFullYear()} Abhishek Jadhav&nbsp;&nbsp;●&nbsp;&nbsp;Created with lots of Procrastination  &amp; Inspiration 
             </span>
           </div>
         </div>

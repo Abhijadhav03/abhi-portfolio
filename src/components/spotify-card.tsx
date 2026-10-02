@@ -136,12 +136,12 @@ export function SpotifyCard({ url, className }: SpotifyCardProps) {
           <div className="absolute left-0 top-0 h-full w-full bg-[linear-gradient(180deg,_rgba(0,_0,_0,_0)_0,_rgba(0,_0,_0,_.8))]" />
         </div>
       </div>
-      <div className="group relative z-[1] w-full max-w-[92px] self-center">
+      <div className="group relative z-[1] w-full max-w-[92px] self-center lg:max-w-[80px]">
         <img
           src={data.image}
           alt={data.title}
           className={cn(
-            "pointer-events-none relative z-[1] min-h-[92px] min-w-[92px] w-full select-none rounded-lg object-cover shadow-md transition-transform duration-300 ease-out",
+            "pointer-events-none relative z-[1] min-h-[92px] min-w-[92px] lg:min-h-[80px] lg:min-w-[80px] w-full select-none rounded-lg object-cover shadow-md transition-transform duration-300 ease-out",
             data.audio && "group-hover:-translate-x-0.5",
             isPlaying && "-translate-x-0.5"
           )}

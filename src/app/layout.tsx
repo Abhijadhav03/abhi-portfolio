@@ -9,6 +9,7 @@ import "./globals.css";
 const MusicToggle = dynamic(() => import("@/components/MusicToggle"), { ssr: false });
 const OnekoCat = dynamic(() => import("@/components/onekocat"), { ssr: false });
 const ClickEffects = dynamic(() => import("@/components/ClickEffects"), { ssr: false });
+const ClickSound = dynamic(() => import("@/components/ClickSound"), { ssr: false });
 const SmoothScroll = dynamic(() => import("@/components/SmoothScroll"), { ssr: false });
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
@@ -39,6 +40,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning={true}>
       <head>
         {/* No oneko.js script here; loaded client-side by OnekoCat */}
+        <link rel="preconnect" href="https://drive.google.com" />
+        <link rel="dns-prefetch" href="https://drive.google.com" />
       </head>
       <body
         className={twMerge(
@@ -52,6 +55,7 @@ export default function RootLayout({
         {children}
         <OnekoCat />
         <ClickEffects />
+        <ClickSound />
         <div className="fixed bottom-6 right-6 z-[10000]">
           <MusicToggle />
         </div>

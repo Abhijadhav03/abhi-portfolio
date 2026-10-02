@@ -31,21 +31,26 @@ export default function ResumePage() {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [iframeLoaded, setIframeLoaded] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  // null = viewport not detected yet; prevents loading the wrong iframe src first
+  const [isMobile, setIsMobile] = useState<boolean | null>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
+  // Detect once via matchMedia, then only react when crossing the breakpoint
   useEffect(() => {
-    const checkMobile = () => {
-      const userAgent = typeof navigator !== "undefined" ? navigator.userAgent : "";
-      const isMobileDevice =
-        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent) ||
-        window.innerWidth < 768;
-      setIsMobile(isMobileDevice);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
+    const mql = window.matchMedia("(max-width: 767px)");
+    const update = () => setIsMobile(mql.matches);
+    update();
+    mql.addEventListener("change", update);
+    return () => mql.removeEventListener("change", update);
   }, []);
+
+  // Safety net: cross-origin iframes (Drive preview) don't reliably fire
+  // onLoad, which left the loading overlay stuck forever. Clear it after 6s.
+  useEffect(() => {
+    if (isMobile === null || iframeLoaded) return;
+    const timer = setTimeout(() => setIframeLoaded(true), 6000);
+    return () => clearTimeout(timer);
+  }, [isMobile, iframeLoaded]);
 
   useEffect(() => {
     if (toastMessage) {
@@ -227,7 +232,7 @@ export default function ResumePage() {
                 : "h-[80vh] sm:h-[86vh] md:h-[90vh]"
                 }`}
             >
-              {!iframeLoaded && (
+              {(isMobile === null || !iframeLoaded) && (
                 <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-[#161f1a]/95 backdrop-blur-sm gap-3 text-white/70">
                   <div className="w-8 h-8 border-2 border-[#3d9e6e]/20 border-t-[#4fd196] rounded-full animate-spin" />
                   <p className="text-xs font-medium text-white/60">
@@ -236,15 +241,17 @@ export default function ResumePage() {
                 </div>
               )}
 
-              <iframe
-                key={isMobile ? "mobile" : "desktop"}
-                ref={iframeRef}
-                src={currentIframeSrc}
-                className="w-full h-full border-0 block"
-                title="Abhishek Jadhav Resume"
-                allow="autoplay"
-                onLoad={() => setIframeLoaded(true)}
-              />
+              {isMobile !== null && (
+                <iframe
+                  key={isMobile ? "mobile" : "desktop"}
+                  ref={iframeRef}
+                  src={currentIframeSrc}
+                  className="w-full h-full border-0 block"
+                  title="Abhishek Jadhav Resume"
+                  allow="autoplay"
+                  onLoad={() => setIframeLoaded(true)}
+                />
+              )}
             </div>
           </div>
         </div>
