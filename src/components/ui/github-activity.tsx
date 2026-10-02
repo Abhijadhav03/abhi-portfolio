@@ -25,7 +25,7 @@ export type RepoContribution = {
   href?: string;
 };
 
-const DEFAULT_ACCENT = "#39d353";
+const DEFAULT_ACCENT = ["#162e21", "#1e4d34", "#266948", "#388c5e", "#4fd196"];
 const MOBILE_CELL_SIZE = 11;
 const LAPTOP_CELL_SIZE = 13.5;
 const DEFAULT_LABEL = "Top contributions in:";
@@ -405,7 +405,7 @@ const ContributionGrid = ({
               <motion.div
                 key={day.date}
                 onPointerEnter={hover(day)}
-                className="shrink-0 rounded-[3px] bg-white/[0.15]"
+                className="shrink-0 rounded-[3px] bg-white/[0.08]"
                 style={{ width: cellSize, height: cellSize }}
                 initial={reduceMotion ? false : { opacity: 0, scale: 0.4 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -452,7 +452,7 @@ const Avatar = ({
     layoutId={layoutId}
     transition={transition}
     className={cn(
-      "grid size-7 shrink-0 place-items-center overflow-hidden rounded-full bg-gray-600 text-[11px] font-medium uppercase text-white/70 ring-2 ring-gray-800",
+      "grid size-7 shrink-0 place-items-center overflow-hidden rounded-full bg-emerald-950 text-[11px] font-medium uppercase text-emerald-200 ring-2 ring-emerald-900/60",
       "[&_img]:size-full [&_img]:object-cover [&_svg]:size-full",
       className,
     )}
@@ -471,12 +471,12 @@ const RepoRow = ({
   transition: Transition;
 }) => {
   const className =
-    "flex items-center gap-3 rounded-xl mx-2 px-2 py-2 transition-colors hover:bg-foreground/5";
+    "flex items-center gap-3 rounded-xl mx-2 px-2 py-2 transition-colors hover:bg-white/5";
 
   const content = (
     <>
       <Avatar repo={repo} layoutId={layoutId} transition={transition} />
-      <span className="flex-1 truncate text-sm text-white">
+      <span className="flex-1 truncate text-sm text-[#f4efe6]">
         {repo.name}
       </span>
       <span className="text-sm tabular-nums text-white">
@@ -609,14 +609,14 @@ const GitHubActivity = ({
     <div
       data-slot="github-activity"
       className={cn(
-        "relative max-w-full overflow-hidden rounded-[28px] bg-gradient-to-t from-gray-900 via-gray-900 to-gray-800 p-4 dark:bg-black",
+        "relative max-w-full overflow-hidden rounded-[28px] bg-[#161f1a]/95 border border-emerald-500/20 shadow-[0_20px_45px_rgba(0,0,0,0.5)] backdrop-blur-md p-4 text-white",
         repos.length > 0 && "pb-[76px]",
         className,
       )}
       style={{ width, ...style }}
       {...props}
     >
-      <p className="mb-4 text-base text-white font-medium text-foreground px-1.5">
+      <p className="mb-4 text-base text-[#f4efe6] font-medium px-1.5">
         {heading}
       </p>
 
@@ -637,7 +637,7 @@ const GitHubActivity = ({
           data-slot="github-activity-panel"
           data-state={open ? "open" : "closed"}
           className={cn(
-            "absolute inset-x-3 bottom-3 overflow-hidden bg-gray-800 backdrop-blur-xl",
+            "absolute inset-x-3 bottom-3 overflow-hidden bg-[#101914]/95 border border-emerald-500/20 backdrop-blur-xl",
             open && "top-3",
           )}
           style={{ borderRadius: 18 }}
@@ -648,7 +648,7 @@ const GitHubActivity = ({
             transition={headerTransition}
             className="flex items-center justify-between gap-3 py-3 px-4"
           >
-            <span className="truncate text-sm text-white">{label}</span>
+            <span className="truncate text-sm text-[#f4efe6]">{label}</span>
 
             <div className="flex items-center gap-3">
               {!open && (
@@ -673,7 +673,7 @@ const GitHubActivity = ({
                 aria-label={
                   open ? "Hide top repositories" : "Show top repositories"
                 }
-                className="grid size-7 shrink-0 place-items-center rounded-full bg-gray-700"
+                className="grid size-7 shrink-0 place-items-center rounded-full bg-emerald-950/80 border border-emerald-500/30 text-emerald-200 hover:bg-emerald-900/80 transition-colors"
               >
                 <Chevron open={open} transition={transition} />
               </button>

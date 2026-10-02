@@ -71,7 +71,7 @@ const portfolioProjects = [
 
 export const ProjectsSection = () => {
   return (
-    <section id="projects" className="w-full py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="relative w-full py-16 lg:py-24 px-4 sm:px-6 lg:px-8 z-0">
       <div className="container">
         <div className="flex justify-center">
           <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-lime-200 via-lime-400 to-lime-700 bg-clip-text text-transparent">
@@ -89,15 +89,19 @@ export const ProjectsSection = () => {
           {portfolioProjects.map((project, index) => (
             <div
               key={project.title}
-              className="bg-gray-800 rounded-3xl relative overflow-hidden 
-  after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-tr 
-  after:from-emerald-800 after:via-gray-700 after:to-gray-900 after:opacity-40 
-  hover:after:opacity-60 after:rounded-3xl after:pointer-events-none 
-  transition-opacity px-8 pt-8 md:pt-12 md:px-10 sticky top-16  "
+              className="group/card bg-[#161f1a]/90 border border-emerald-500/20 hover:border-emerald-400/45 shadow-[0_20px_45px_rgba(0,0,0,0.5)] hover:shadow-[0_25px_60px_rgba(61,158,110,0.2)] backdrop-blur-md rounded-3xl relative overflow-hidden transition-all duration-500 px-8 pt-8 md:pt-12 md:px-10 sticky"
+              style={{
+                top: `calc(4.5rem + ${index * 1.5}rem)`,
+                zIndex: index + 1,
+              }}
             >
-              {/* GRAIN: Behind everything, very low opacity */}
+              {/* Luminous hover gradient overlay */}
               <div
-                className="absolute inset-0 -z-20 opacity-5 pointer-events-none"
+                className="absolute inset-0 bg-gradient-to-tr from-emerald-600/25 via-emerald-800/15 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none rounded-3xl z-0"
+              />
+              {/* GRAIN: Behind everything */}
+              <div
+                className="absolute inset-0 -z-20 opacity-15 pointer-events-none mix-blend-overlay"
                 style={{
                   backgroundImage: `url(${grainimage.src})`,
                   backgroundSize: "cover",

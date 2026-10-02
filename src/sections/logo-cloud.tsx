@@ -123,20 +123,20 @@ export function LogoCloud({
     <section
       {...props}
       className={cn(
-        'py-16  dark:bg-gray-900 text-center',
+        'py-16 text-center',
         className
       )}
     >
-      <h2 className="text-4xl md:text-5xl font-instrument-serif text-white text-gray-900">
+      <h2 className="text-4xl md:text-5xl font-instrument-serif text-[#f4efe6]">
         Stack I Use
       </h2>
-      <p className="mt-3 text-base md:text-lg text-white/50 mx-6 ">
+      <p className="mt-3 text-base md:text-lg text-emerald-100/60 mx-6 ">
         From front-end finesse to back-end muscle - these are the tools I use to bring ideas to life.
       </p>
 
       <div
         className={cn(
-          'mt-10 py-4 bg-gray-850 text-foreground',
+          'group mt-10 py-4 bg-emerald-950/20 text-foreground',
           '[mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]'
         )}
       >
@@ -151,9 +151,12 @@ export function LogoCloud({
             <img
               alt={logo.alt}
               className={cn(
-                'h-12 w-12 md:h-12 md:w-12 pointer-events-none select-none gap-12 object-fit-contain',
+                'h-12 w-12 md:h-12 md:w-12 select-none gap-12 object-contain',
                 'grayscale brightness-125 contrast-90 opacity-80',
-                'dark:brightness-75 dark:contrast-125 hover:grayscale-0 hover:opacity-100 transition duration-300'
+                'dark:brightness-75 dark:contrast-125',
+                'group-hover:grayscale-0 group-hover:opacity-100 group-hover:brightness-100 group-hover:contrast-100 dark:group-hover:brightness-100 dark:group-hover:contrast-100',
+                'hover:grayscale-0 hover:opacity-100 hover:brightness-100 hover:contrast-100 dark:hover:brightness-100 dark:hover:contrast-100',
+                'transition duration-300'
               )}
               height={logo.height || 'auto'}
               key={`logo-${logo.alt}`}

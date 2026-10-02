@@ -12,12 +12,13 @@ import { Highlighter } from "@/components/ui/highlighter";
 
 export const HeroSection = () => {
   return (
-    <section className="relative w-full flex flex-col justify-center items-center text-center py-32 text-white overflow-hidden z-0 after:pointer-events-none">
-      <div className="absolute inset-0 [mask-image:radial-gradient(closest-side,transparent,black)] z-0 pointer-events-none"></div>
+    <section className="relative w-full flex flex-col justify-center items-center text-center pt-32 pb-44 sm:pb-48 md:pb-56 text-white overflow-x-clip z-0 after:pointer-events-none">
+
+      {/* Whisper-light subtle grain with smooth bottom fade */}
       <div
-        className="absolute inset-0 -z-10 opacity-5 pointer-events-none"
+        className="absolute inset-0 -z-10 opacity-[0.035] pointer-events-none mix-blend-overlay [mask-image:linear-gradient(to_bottom,black_75%,transparent_100%)]"
         style={{ backgroundImage: `url(${grainimage.src})` }}
-      ></div>
+      />
 
       <div className="container flex flex-col items-center gap-8 max-w-3xl mx-auto">
         {/* Profile Image & Availability Badge */}
@@ -66,7 +67,7 @@ export const HeroSection = () => {
 
         {/* Subtext */}
         <p className="w-full max-w-[19rem] px-3 text-center text-sm text-white/70 sm:max-w-sm md:max-w-xl sm:px-0 sm:text-base">
-          <Highlighter action="underline" isView={true} color="#BCEF6B">A Frontend Engineer</Highlighter> Focused on Building Scalable High Performant Web Applications
+          <Highlighter action="underline" isView={true} color="#BCEF6B"> Frontend Engineer</Highlighter>  who builds fast, playful, pixel-perfect web and mobile apps.
           {/* and coffee enthusiast 🍵. */}
           {/* I build modern web
           experiences that feel natural, fast, and delightful. */}

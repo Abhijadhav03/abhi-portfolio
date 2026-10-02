@@ -45,7 +45,7 @@ export default function RootLayout({
           inter.variable,
           instrumentSerif.variable,
           calistoga.variable,
-          "bg-gradient-to-t from-gray-900 via-gray-900 to-gray-800 text-white antialiased font-sans min-h-screen"
+          "bg-[#111714] text-white antialiased font-sans min-h-screen selection:bg-[#3d9e6e]/30 selection:text-[#86cea8]"
         )}
       >
         <SmoothScroll />

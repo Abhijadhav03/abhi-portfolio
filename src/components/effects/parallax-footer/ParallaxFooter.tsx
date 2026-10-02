@@ -19,12 +19,13 @@ export const ParallaxFooter: React.FC<ParallaxFooterProps> = ({
 }) => {
   const footerRef = useRef<HTMLElement>(null);
   const [height, setHeight] = useState<number>(1);
-  const [clipPathValue, setClipPathValue] = useState<string>("rect(0px, 100%, 100%, 0px)");
+  const [clipPathValue, setClipPathValue] = useState<string>("inset(0px 0px 0px 0px round 2.5rem 2.5rem 0px 0px)");
 
   useEffect(() => {
-    // Check if rect() syntax is supported, fallback to inset() if needed
     if (typeof window !== "undefined" && window.CSS && CSS.supports) {
-      if (!CSS.supports("clip-path", "rect(0px, 100%, 100%, 0px)")) {
+      if (CSS.supports("clip-path", "inset(0px 0px 0px 0px round 2.5rem 2.5rem 0px 0px)")) {
+        setClipPathValue("inset(0px 0px 0px 0px round 2.5rem 2.5rem 0px 0px)");
+      } else {
         setClipPathValue("inset(0px 0px 0px 0px)");
       }
     }
@@ -59,7 +60,7 @@ export const ParallaxFooter: React.FC<ParallaxFooterProps> = ({
   return (
     <div
       id={id}
-      className={`w-full relative z-0 ${outerClassName}`}
+      className={`w-full relative z-0 rounded-t-[2.5rem] md:rounded-t-[3rem] overflow-hidden ${outerClassName}`}
       style={{
         height: height > 1 ? height : undefined,
         clipPath: clipPathValue,
@@ -68,7 +69,7 @@ export const ParallaxFooter: React.FC<ParallaxFooterProps> = ({
     >
       <footer
         ref={footerRef}
-        className={`w-full fixed bottom-0 left-0 ${footerClassName}`}
+        className={`w-full fixed bottom-0 left-0 rounded-t-[2.5rem] md:rounded-t-[3rem] overflow-hidden ${footerClassName}`}
         style={footerStyle}
       >
         {children}
