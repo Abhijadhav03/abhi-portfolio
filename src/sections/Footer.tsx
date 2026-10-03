@@ -109,7 +109,7 @@ export const Footer = () => {
                 Resume
               </a>
               <a
-                href="https://x.com/abhijadhav03"
+                href="https://x.com/abhiijadhav1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white transition-colors flex items-center gap-1.5"
