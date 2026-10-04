@@ -89,7 +89,7 @@ export const ProjectsSection = () => {
           {portfolioProjects.map((project, index) => (
             <div
               key={project.title}
-              className="group/card bg-[#161f1a]/90 border border-emerald-500/20 hover:border-emerald-400/45 shadow-[0_20px_45px_rgba(0,0,0,0.5)] hover:shadow-[0_25px_60px_rgba(61,158,110,0.2)] backdrop-blur-md rounded-3xl relative overflow-hidden transition-all duration-500 px-8 pt-8 md:pt-12 md:px-10 sticky"
+              className="group/card bg-[#161f1a]/90 border border-emerald-500/20 hover:border-emerald-400/45 shadow-[0_20px_45px_rgba(0,0,0,0.5)] hover:shadow-[0_25px_60px_rgba(61,158,110,0.2)] backdrop-blur-md rounded-3xl relative overflow-hidden transition-all duration-500 px-6 pt-6 pb-6 sm:px-8 sm:pt-8 sm:pb-8 md:pt-12 md:px-10 md:pb-12 lg:pb-12 sticky"
               style={{
                 top: `calc(4.5rem + ${index * 1.5}rem)`,
                 zIndex: index + 1,
@@ -109,7 +109,7 @@ export const ProjectsSection = () => {
               />
 
               {/* CONTENT: Bring above overlays */}
-              <div className="relative z-10 lg:grid lg:grid-cols-2 lg:gap-16 lg:items-start">
+              <div className="relative z-10 lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
                 {/* TEXT CONTENT */}
                 <div className={index % 2 === 1 ? "lg:order-2" : ""}>
                   <div className="bg-gradient-to-r from-lime-200 via-lime-400 to-lime-700 bg-clip-text text-transparent uppercase text-xs font-semibold tracking-wider gap-2 mb-2 p-2">
@@ -118,27 +118,14 @@ export const ProjectsSection = () => {
                     <span>{project.year}</span>
                   </div>
 
-                  <h3 className="font-instrument-serif text-3xl  p-2 md:mt-5 md:text-4xl">
+                  <h3 className="font-instrument-serif text-3xl p-2 md:mt-5 md:text-4xl">
                     {project.title}
                   </h3>
-                  {/* 
-                  <a
-                    className="text-lg  bg-gradient-to-r from-lime-200 via-lime-400 to-lime-700 bg-clip-text text-transparent p-2 md:mt-5 md:text-2xl"
-                    href={project.link}>View Project</a> */}
 
                   <hr className="border-t-2 border-white/5 mt-4 md:mt-5" />
 
                   <ul className="flex flex-col gap-4 mt-4 mb-3 md:mb-3">
                     <li className="text-xl md:text-lg lg:text-base sm:text-sm text-white/60 mt-2 max-width-md mx-auto">{project?.description}</li>
-                    {/* {project?.results?.map((result) => (
-                      <li
-                        className="flex gap-2 text-sm md:text-base text-white/70"
-                        key={result.title}
-                      >
-                        <CheckCircleIcon className="inline-block size-3 md:size-6 text-lime-400" />
-                        <span>{result.title}</span>
-                      </li>
-                    ))} */}
                   </ul>
 
                   <a href={project.link} target="_blank" rel="noopener noreferrer">
@@ -150,11 +137,11 @@ export const ProjectsSection = () => {
                 </div>
 
                 {/* IMAGE */}
-                <div className={`mt-2 lg:mt-0 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
+                <div className={`mt-6 lg:mt-0 -mx-6 sm:-mx-8 md:-mx-10 lg:mx-0 -mb-6 sm:-mb-8 md:-mb-12 lg:mb-0 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
                   <Image
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full rounded-xl shadow-2xl lg:relative "
+                    className="w-full h-auto object-cover rounded-t-2xl lg:rounded-xl shadow-2xl lg:relative"
                   />
                 </div>
               </div>

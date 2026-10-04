@@ -1,5 +1,6 @@
 "use client";
 import { DotLottiePlayer } from "@dotlottie/react-player";
+import { FileText } from "lucide-react";
 import Image from "next/image";
 import ArrowDown from "@/assets/icons/arrow-down.svg";
 import handwave from "@/assets/images/hand_wave.png";
@@ -93,7 +94,7 @@ export const HeroSection = () => {
               href="/resume"
               className="flex items-center gap-2"
             >
-              <span>📄</span>
+              <FileText className="w-4 h-4" />
               <span>Resume / CV</span>
             </a>
           </HoverBorderGradient>

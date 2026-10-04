@@ -25,7 +25,7 @@ export const Header = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
+            className="fixed inset-0 bg-black/35 backdrop-blur-md z-40 md:hidden"
             onClick={() => setMenuOpen(false)}
           />
         )}
@@ -35,7 +35,7 @@ export const Header = () => {
       <header className="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] sm:w-[88%] md:w-[82%] max-w-2xl z-50">
         {/* Closed state: pill bar (always visible on desktop) */}
         <div
-          className={`justify-between items-center w-full rounded-full px-4 py-2.5 bg-[#141d18]/95 backdrop-blur-2xl border border-emerald-500/25 shadow-[0_16px_40px_rgba(0,0,0,0.5)] ${
+          className={`justify-between items-center w-full rounded-full px-4 py-2.5 bg-[#141d18]/45 backdrop-blur-xl border border-emerald-500/20 shadow-[0_16px_40px_rgba(0,0,0,0.35)] ${
             menuOpen ? "hidden md:flex" : "flex"
           }`}
         >
@@ -96,7 +96,7 @@ export const Header = () => {
               exit={{ opacity: 0, y: -10, scale: 0.95 }}
               transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
               style={{ transformOrigin: "top center" }}
-              className="md:hidden rounded-[2rem] px-6 pt-5 pb-6 bg-[#141d18]/55 backdrop-blur-2xl border border-emerald-500/20 shadow-[0_24px_60px_rgba(0,0,0,0.45)]"
+              className="md:hidden rounded-[2rem] px-6 pt-5 pb-6 bg-[#141d18]/40 backdrop-blur-2xl border border-emerald-500/20 shadow-[0_24px_60px_rgba(0,0,0,0.35)]"
             >
               {/* Sheet top row: logo + plain close button */}
               <div className="flex justify-between items-center">
